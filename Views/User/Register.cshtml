@@ -1,0 +1,88 @@
+﻿@model UserInformation.Models.UserModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="mb-0">User Registration</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="User" asp-action="Register" method="post" novalidate>
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            <label asp-for="Phone" class="form-label"></label>
+                            <input asp-for="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label class="form-label">Gender</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="Gender" type="radio" value="Male" class="form-check-input" />
+                                    <label class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="Gender" type="radio" value="Female" class="form-check-input" />
+                                    <label class="form-check-label">Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Country -->
+                        <div class="mb-3">
+                            <label asp-for="Country" class="form-label"></label>
+                            <select asp-for="Country" asp-items="@(new SelectList(new[] { "USA", "India", "Canada" }))" class="form-select"></select>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+
+                        <!-- Bio -->
+                        <div class="mb-3">
+                            <label asp-for="Bio" class="form-label"></label>
+                            <textarea asp-for="Bio" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Bio" class="text-danger"></span>
+                        </div>
+
+                        <!-- Accept Terms -->
+                        <div class="mb-3 form-check">
+                            <input asp-for="AcceptTerms" type="checkbox" class="form-check-input" />
+                            <label asp-for="AcceptTerms" class="form-check-label">I accept the terms and conditions</label>
+                            <span asp-validation-for="AcceptTerms" class="text-danger"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <small>All fields are required.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
